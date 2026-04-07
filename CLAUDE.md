@@ -14,13 +14,24 @@ Then open the URL printed in the terminal (port may vary). Do not open `index.ht
 
 ## Git workflow
 
-This project uses Git with a remote at `https://github.com/ballerispolarspring/retro-shooter`. After every meaningful change, commit with a descriptive message and push:
+This project uses Git with a remote at `https://github.com/ballerispolarspring/retro-shooter`.
+
+**Commit and push after every meaningful change — no exceptions.** Do not batch multiple features into one commit. A "meaningful change" is any edit that leaves the game in a working (or intentionally broken-for-a-reason) state: adding a feature, fixing a bug, updating a config, even a significant refactor of a single file.
+
+Workflow for every change:
 
 ```bash
-git add <files>
-git commit -m "short description of what and why"
+git add <only the files you changed>
+git commit -m "verb: short description of what and why"
 git push
 ```
+
+Commit message style — imperative mood, present tense, ≤72 chars:
+- `Add enemy knockback on bullet hit`
+- `Fix wave-clear not triggering when last enemy dies mid-tween`
+- `Increase player speed from 130 to 160 for better feel`
+
+Never use `git add .` or `git add -A` — stage files explicitly to avoid committing unintended files.
 
 ## Architecture
 
